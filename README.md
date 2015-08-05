@@ -1,4 +1,10 @@
-# .vim
-Frequently updated vim colour, theme, operation settings
+# boombox.vim - Makes Vim look purty!
+Adds frequently updated vim colour, theme and configuration settings to your vim install!
 
-Add this git repository to your home folder (~) and run .vim/vim_setup to configure vim.
+## Installation Guide
+To install boombox.vim and Klep's .vimrc file, you need only run these two commands:
+
+'''git clone https://github.com/Kleptomaniac/.vim.git ~/.vim
+~/.vim/vim_setup'''
+
+After that, you're done and vim looks a whole lot nicer!
