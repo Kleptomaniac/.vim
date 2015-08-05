@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Shell script to add .vimrc and vim themes
+# support, while preserving git repo support
+#
+# Ensure this file is run when git repo
+# is first added
+
+echo "Installing .vimrc and vim color support"
+if ln -s ~/.vim/.vimrc ~/.vimrc; then
+    echo "Vim setup complete."
+else
+    # Check if file already exists, if so force
+    while true; do
+        read -p "~/.vimrc already exists. Would you like to overwrite it (y/n)?" check
+        case $check in
+            [Yy]* )
+                ln -f -s ~/.vim/.vimrc ~/.vimrc
+                echo "Vim setup complete."
+                break;;
+            [Nn]* )
+                echo "Exiting."
+                exit;;
+            * )
+                echo "Please answer only y or n."
+        esac
+    done
+fi
