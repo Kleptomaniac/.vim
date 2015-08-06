@@ -6,23 +6,24 @@
 # Ensure this file is run when git repo
 # is first added
 
-echo "Installing .vimrc and vim color support"
-if ln -s ~/.vim/.vimrc ~/.vimrc; then
-    echo "Vim setup complete."
-else
-    # Check if file already exists, if so force
-    while true; do
-        read -p "~/.vimrc already exists. Would you like to overwrite it (y/n)?" check
-        case $check in
-            [Yy]* )
-                ln -f -s ~/.vim/.vimrc ~/.vimrc
-                echo "Vim setup complete."
-                break;;
-            [Nn]* )
-                echo "Exiting."
-                exit;;
-            * )
-                echo "Please answer only y or n."
-        esac
-    done
-fi
+echo "Any existing instances of ~/.vim and ~/.vimrc will be overwritten."
+while true; do
+    read -p "Would you like to proceed (y/n)?" check
+    case $check in
+        [Yy]* )
+            # Remove existing ~/.vim and ~/.vimrc instances
+            # Set up symbolic link to repo .vimrc file
+            rm -r -f ~/.vim
+            mv ~/.v ~/.vim
+            ln -f -s ~/.vim/.vimrc ~/.vimrc
+            echo "Vim setup complete."
+            break;;
+        [Nn]* )
+            # Abort program
+            echo "Exiting."
+            exit;;
+        * )
+            # Check for invalid characters
+            echo "Please answer only y or n."
+    esac
+done
