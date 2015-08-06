@@ -9,4 +9,4 @@ git clone https://github.com/Kleptomaniac/.vim.git ~/.v
 ~/.v/vim_setup
 ```
 
-After that, you're done and vim looks a whole lot nicer!
+After that, you're done and vim looks a whole lot prettier!
