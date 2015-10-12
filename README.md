@@ -6,7 +6,7 @@ To install boombox and Klep's .vimrc file, you need only run these two commands:
 
 ```
 git clone https://github.com/Kleptomaniac/boombox.git ~/.boombox
-~/.boombox/vim_setup
+~/.boombox/setup
 ```
 
 After that, you're done and vim looks a whole lot prettier!
