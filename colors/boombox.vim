@@ -1,6 +1,6 @@
 " -----------------------------------------------------------------------------
 " File: boombox.vim
-" Description: Modified version of gruvbox by morhetz
+" Description: Modified version of boombox by morhetz
 " Author: klepsauce <klepsauce@gmail.com>
 " Last Modified: 28 June 2015
 " -----------------------------------------------------------------------------
@@ -24,84 +24,84 @@ endif
 " }}}
 " Global Settings: {{{
 
-if !exists('g:gruvbox_bold')
-    let g:gruvbox_bold=1
+if !exists('g:boombox_bold')
+    let g:boombox_bold=1
 endif
-if !exists('g:gruvbox_italic')
+if !exists('g:boombox_italic')
     if has('gui_running') || $TERM_ITALICS == 'true'
-        let g:gruvbox_italic=1
+        let g:boombox_italic=1
     else
-        let g:gruvbox_italic=0
+        let g:boombox_italic=0
     endif
 endif
-if !exists('g:gruvbox_undercurl')
-    let g:gruvbox_undercurl=1
+if !exists('g:boombox_undercurl')
+    let g:boombox_undercurl=1
 endif
-if !exists('g:gruvbox_underline')
-    let g:gruvbox_underline=1
-endif
-
-if !exists('g:gruvbox_italicize_comments')
-    let g:gruvbox_italicize_comments=1
-endif
-if !exists('g:gruvbox_italicize_strings')
-    let g:gruvbox_italicize_strings=0
+if !exists('g:boombox_underline')
+    let g:boombox_underline=1
 endif
 
-if !exists('g:gruvbox_improved_strings')
-    let g:gruvbox_improved_strings=0
+if !exists('g:boombox_italicize_comments')
+    let g:boombox_italicize_comments=1
+endif
+if !exists('g:boombox_italicize_strings')
+    let g:boombox_italicize_strings=0
 endif
 
-if !exists('g:gruvbox_improved_warnings')
-    let g:gruvbox_improved_warnings=0
+if !exists('g:boombox_improved_strings')
+    let g:boombox_improved_strings=0
 endif
 
-if !exists('g:gruvbox_termcolors')
-    let g:gruvbox_termcolors=256
+if !exists('g:boombox_improved_warnings')
+    let g:boombox_improved_warnings=0
 endif
 
-if !exists('g:gruvbox_invert_indent_guides')
-    let g:gruvbox_invert_indent_guides=0
+if !exists('g:boombox_termcolors')
+    let g:boombox_termcolors=256
 endif
 
-if !exists('g:gruvbox_hls_cursor')
-    let g:gruvbox_hls_cursor='orange'
+if !exists('g:boombox_invert_indent_guides')
+    let g:boombox_invert_indent_guides=0
 endif
 
-if !exists('g:gruvbox_sign_column')
-    let g:gruvbox_sign_column='dark1'
+if !exists('g:boombox_hls_cursor')
+    let g:boombox_hls_cursor='orange'
 endif
 
-if !exists('g:gruvbox_color_column')
-    let g:gruvbox_color_column='dark1'
+if !exists('g:boombox_sign_column')
+    let g:boombox_sign_column='dark1'
 endif
 
-if !exists('g:gruvbox_vert_split')
-    let g:gruvbox_vert_split='dark2'
+if !exists('g:boombox_color_column')
+    let g:boombox_color_column='dark1'
 endif
 
-if !exists('g:gruvbox_invert_signs')
-    let g:gruvbox_invert_signs=0
+if !exists('g:boombox_vert_split')
+    let g:boombox_vert_split='dark2'
 endif
 
-if !exists('g:gruvbox_invert_selection')
-    let g:gruvbox_invert_selection=1
+if !exists('g:boombox_invert_signs')
+    let g:boombox_invert_signs=0
 endif
 
-if !exists('g:gruvbox_contrast')
-    let g:gruvbox_contrast='medium'
+if !exists('g:boombox_invert_selection')
+    let g:boombox_invert_selection=1
 endif
 
-if !exists('g:gruvbox_contrast_dark')
-    let g:gruvbox_contrast_dark='medium'
+if !exists('g:boombox_contrast')
+    let g:boombox_contrast='medium'
 endif
 
-if !exists('g:gruvbox_contrast_light')
-    let g:gruvbox_contrast_light='medium'
+if !exists('g:boombox_contrast_dark')
+    let g:boombox_contrast_dark='medium'
 endif
 
-if !exists('g:gruvbox_invert_tabline')
-    let g:gruvbox_invert_tabline=0
+if !exists('g:boombox_contrast_light')
+    let g:boombox_contrast_light='medium'
+endif
+
+if !exists('g:boombox_invert_tabline')
+    let g:boombox_invert_tabline=0
 endif
 
 let s:is_dark=(&background == 'dark')
@@ -136,7 +136,7 @@ if s:is_dark
     let s:gb.aqua   = ['87d7af', 115]     " 135-215-175
     let s:gb.orange = ['fe8019', 208]     " 254-128-25
 
-    if g:gruvbox_termcolors == 16
+    if g:boombox_termcolors == 16
         let s:gb.dark0  = ['282828', 0]
         let s:gb.light4 = ['a89984', 7]
         let s:gb.medium = ['928374', 8]
@@ -149,19 +149,19 @@ if s:is_dark
         let s:gb.light1 = ['ebdbb2', 15]
     endif
 
-    if g:gruvbox_contrast == 'soft'
+    if g:boombox_contrast == 'soft'
         let s:gb.dark0  = ['32302f', 236]     " 50-48-47
     endif
 
-    if g:gruvbox_contrast == 'hard'
+    if g:boombox_contrast == 'hard'
         let s:gb.dark0  = ['1d2021', 234]     " 29-32-33
     endif
 
-    if g:gruvbox_contrast_dark == 'soft'
+    if g:boombox_contrast_dark == 'soft'
         let s:gb.dark0  = ['32302f', 236]     " 50-48-47
     endif
 
-    if g:gruvbox_contrast_dark == 'hard'
+    if g:boombox_contrast_dark == 'hard'
         let s:gb.dark0  = ['1d2021', 234]     " 29-32-33
     endif
 else
@@ -189,7 +189,7 @@ else
     let s:gb.aqua   = ['427b58', 66]      " 66-123-88
     let s:gb.orange = ['af3a03', 130]     " 175-58-3
 
-    if g:gruvbox_termcolors == 16
+    if g:boombox_termcolors == 16
         let s:gb.dark0  = ['fbf1c7', 0]
         let s:gb.light4 = ['7c6f64', 7]
         let s:gb.medium = ['928374', 8]
@@ -202,19 +202,19 @@ else
         let s:gb.light1 = ['3c3836', 15]
     endif
 
-    if g:gruvbox_contrast == 'soft'
+    if g:boombox_contrast == 'soft'
         let s:gb.dark0  = ['f2e5bc', 228]     " 242-229-188
     endif
 
-    if g:gruvbox_contrast == 'hard'
+    if g:boombox_contrast == 'hard'
         let s:gb.dark0  = ['f9f5d7', 230]     " 249-245-215
     endif
 
-    if g:gruvbox_contrast_light == 'soft'
+    if g:boombox_contrast_light == 'soft'
         let s:gb.dark0  = ['f2e5bc', 228]     " 242-229-188
     endif
 
-    if g:gruvbox_contrast_light == 'hard'
+    if g:boombox_contrast_light == 'hard'
         let s:gb.dark0  = ['f9f5d7', 230]     " 249-245-215
     endif
 endif
@@ -260,52 +260,52 @@ function! s:HL(group, fg, ...)
     if a:0 >= 2 && strlen(a:2)
         if a:2 == 'none'
             let histring .= 'gui=NONE cterm=NONE '
-        elseif a:2 == 'italic' && g:gruvbox_italic == 0
+        elseif a:2 == 'italic' && g:boombox_italic == 0
             let histring .= 'gui=NONE cterm=NONE '
-        elseif a:2 == 'bold' && g:gruvbox_bold == 0
+        elseif a:2 == 'bold' && g:boombox_bold == 0
             let histring .= 'gui=NONE cterm=NONE '
-        elseif a:2 == 'bold,inverse' && g:gruvbox_bold == 0
+        elseif a:2 == 'bold,inverse' && g:boombox_bold == 0
             let histring .= 'gui=inverse cterm=inverse '
-        elseif a:2 == 'undercurl' && g:gruvbox_undercurl == 0
+        elseif a:2 == 'undercurl' && g:boombox_undercurl == 0
             let histring .= 'gui=NONE cterm=NONE '
-        elseif a:2 == 'underline' && g:gruvbox_underline == 0
+        elseif a:2 == 'underline' && g:boombox_underline == 0
             let histring .= 'gui=NONE cterm=NONE '
         elseif a:2 == 'bold,italic'
-            if g:gruvbox_italic == 0 && g:gruvbox_bold == 0
+            if g:boombox_italic == 0 && g:boombox_bold == 0
                 let histring .= 'gui=NONE cterm=NONE '
-            elseif g:gruvbox_italic == 0
+            elseif g:boombox_italic == 0
                 let histring .= 'gui=bold cterm=bold '
-            elseif g:gruvbox_bold == 0
+            elseif g:boombox_bold == 0
                 let histring .= 'gui=italic cterm=italic '
             else
                 let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
             endif
         elseif a:2 == 'bold,underline'
-            if g:gruvbox_underline == 0 && g:gruvbox_bold == 0
+            if g:boombox_underline == 0 && g:boombox_bold == 0
                 let histring .= 'gui=NONE cterm=NONE '
-            elseif g:gruvbox_underline == 0
+            elseif g:boombox_underline == 0
                 let histring .= 'gui=bold cterm=bold '
-            elseif g:gruvbox_bold == 0
+            elseif g:boombox_bold == 0
                 let histring .= 'gui=underline cterm=underline '
             else
                 let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
             endif
         elseif a:2 == 'underline,italic'
-            if g:gruvbox_underline == 0 && g:gruvbox_italic == 0
+            if g:boombox_underline == 0 && g:boombox_italic == 0
                 let histring .= 'gui=NONE cterm=NONE '
-            elseif g:gruvbox_underline == 0
+            elseif g:boombox_underline == 0
                 let histring .= 'gui=italic cterm=italic '
-            elseif g:gruvbox_italic == 0
+            elseif g:boombox_italic == 0
                 let histring .= 'gui=underline cterm=underline '
             else
                 let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
             endif
         elseif a:2 == 'bold,underline,italic'
-            if g:gruvbox_italic == 0 && g:gruvbox_bold == 0
+            if g:boombox_italic == 0 && g:boombox_bold == 0
                 let histring .= 'gui=underline cterm=underline '
-            elseif g:gruvbox_italic == 0
+            elseif g:boombox_italic == 0
                 let histring .= 'gui=bold,underline cterm=bold,underline '
-            elseif g:gruvbox_bold == 0
+            elseif g:boombox_bold == 0
                 let histring .= 'gui=italic,underline cterm=italic,underline '
             else
                 let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
@@ -339,7 +339,7 @@ call s:HL('Normal', 'light1', 'dark0')
 
 " Correct background (see issue #7):
 " --- Problem with changing between dark and light on 256 color terminal
-" --- https://github.com/morhetz/gruvbox/issues/7
+" --- https://github.com/morhetz/boombox/issues/7
 if s:is_dark
     set background=dark
 else
@@ -352,7 +352,7 @@ if version >= 700
     " Screen column that the cursor is
     call s:HL('CursorColumn', 'none', 'dark1')
 
-if g:gruvbox_invert_tabline == 0
+if g:boombox_invert_tabline == 0
     " Tab pages line filler
     call s:HL('TabLineFill', 'dark1', 'bg')
     " Active tab page label
@@ -371,7 +371,7 @@ endif
 
 if version >= 703
     " Highlighted screen columns
-    call s:HL('ColorColumn',  'none', g:gruvbox_color_column)
+    call s:HL('ColorColumn',  'none', g:boombox_color_column)
 
     " Concealed element: \lambda → λ
     call s:HL('Conceal', 'blue', 'none')
@@ -383,7 +383,7 @@ endif
 call s:HL('NonText',    'dark2')
 call s:HL('SpecialKey', 'dark2')
 
-if g:gruvbox_invert_selection == 0
+if g:boombox_invert_selection == 0
     call s:HL('Visual',    'none',  'dark2')
     call s:HL('VisualNOS', 'none',  'dark2')
 else
@@ -392,7 +392,7 @@ else
 endif
 
 call s:HL('Search',    'dark0', 'yellow')
-call s:HL('IncSearch', 'dark0', g:gruvbox_hls_cursor)
+call s:HL('IncSearch', 'dark0', g:boombox_hls_cursor)
 
 call s:HL('Underlined', 'blue', 'none', 'underline')
 
@@ -400,7 +400,7 @@ call s:HL('StatusLine',   'dark4', 'dark0', 'bold,inverse')
 call s:HL('StatusLineNC', 'dark2', 'light4', 'bold,inverse')
 
 " The column separating vertically split windows
-call s:HL('VertSplit', 'light4', g:gruvbox_vert_split)
+call s:HL('VertSplit', 'light4', g:boombox_vert_split)
 
 " Current match in wildmenu completion
 call s:HL('WildMenu', 'blue', 'dark2', 'bold')
@@ -429,7 +429,7 @@ call s:HL('WarningMsg', 'red', 'none', 'bold')
 call s:HL('LineNr', 'light2', 'dark1')
 
 " Column where signs are displayed
-call s:HL('SignColumn', 'none', g:gruvbox_sign_column)
+call s:HL('SignColumn', 'none', g:boombox_sign_column)
 
 " Line used for closed folds
 call s:HL('Folded', 'medium', 'dark1', 'italic')
@@ -451,13 +451,13 @@ call s:HL('lCursor', 'none', 'none', 'inverse')
 " }}}
 " Syntax Highlighting: {{{
 
-if g:gruvbox_improved_strings == 0
+if g:boombox_improved_strings == 0
     call s:HL('Special', 'orange')
 else
     call s:HL('Special', 'dark1', 'orange', 'italic')
 endif
 
-if g:gruvbox_italicize_comments == 0
+if g:boombox_italicize_comments == 0
     call s:HL('Comment', 'medium', 'none')
 else
     call s:HL('Comment', 'medium', 'none', 'italic')
@@ -501,10 +501,10 @@ call s:HL('Constant',  'purple')
 " Character constant: 'c', '/n'
 call s:HL('Character', 'purple')
 " String constant: "this is a string"
-if g:gruvbox_italicize_strings == 0
+if g:boombox_italicize_strings == 0
     call s:HL('String',  'green')
 else
-    if g:gruvbox_improved_strings == 0
+    if g:boombox_improved_strings == 0
         call s:HL('String',  'green', 'none', 'italic')
     else
         call s:HL('String',  'dark1', 'light1', 'italic')
@@ -557,7 +557,7 @@ call s:HL('DiffText',   'dark0', 'yellow')
 
 if has("spell")
     " Not capitalised word, or compile warnings
-    if g:gruvbox_improved_warnings == 0
+    if g:boombox_improved_warnings == 0
         call s:HL('SpellCap',   'none', 'none', 'undercurl', 'red')
     else
         call s:HL('SpellCap',   'green', 'none', 'italic,bold')
@@ -594,7 +594,7 @@ if !exists('g:indent_guides_auto_colors')
 endif
 
 if g:indent_guides_auto_colors == 0
-    if g:gruvbox_invert_indent_guides == 0
+    if g:boombox_invert_indent_guides == 0
         call s:HL('IndentGuidesOdd', 'bg', 'dark2')
         call s:HL('IndentGuidesEven', 'bg', 'dark1')
     else
@@ -639,16 +639,16 @@ let g:niji_light_colours = g:rbpt_colorpairs
 "}}}
 " GitGutter: {{{
 
-if g:gruvbox_invert_signs == 0
-    call s:HL('GitGutterAdd', 'green', g:gruvbox_sign_column)
-    call s:HL('GitGutterChange', 'aqua', g:gruvbox_sign_column)
-    call s:HL('GitGutterDelete', 'red', g:gruvbox_sign_column)
-    call s:HL('GitGutterChangeDelete', 'aqua', g:gruvbox_sign_column)
+if g:boombox_invert_signs == 0
+    call s:HL('GitGutterAdd', 'green', g:boombox_sign_column)
+    call s:HL('GitGutterChange', 'aqua', g:boombox_sign_column)
+    call s:HL('GitGutterDelete', 'red', g:boombox_sign_column)
+    call s:HL('GitGutterChangeDelete', 'aqua', g:boombox_sign_column)
 else
-    call s:HL('GitGutterAdd', 'green', g:gruvbox_sign_column, 'inverse')
-    call s:HL('GitGutterChange', 'aqua', g:gruvbox_sign_column, 'inverse')
-    call s:HL('GitGutterDelete', 'red', g:gruvbox_sign_column, 'inverse')
-    call s:HL('GitGutterChangeDelete', 'aqua', g:gruvbox_sign_column, 'inverse')
+    call s:HL('GitGutterAdd', 'green', g:boombox_sign_column, 'inverse')
+    call s:HL('GitGutterChange', 'aqua', g:boombox_sign_column, 'inverse')
+    call s:HL('GitGutterDelete', 'red', g:boombox_sign_column, 'inverse')
+    call s:HL('GitGutterChangeDelete', 'aqua', g:boombox_sign_column, 'inverse')
 endif
 
 " }}}
@@ -660,14 +660,14 @@ call s:HL('gitcommitDiscardedFile', 'red')
 " }}}
 " Signify: {{{
 
-if g:gruvbox_invert_signs == 0
-    call s:HL('SignifySignAdd', 'green', g:gruvbox_sign_column)
-    call s:HL('SignifySignChange ', 'aqua', g:gruvbox_sign_column)
-    call s:HL('SignifySignDelete', 'red', g:gruvbox_sign_column)
+if g:boombox_invert_signs == 0
+    call s:HL('SignifySignAdd', 'green', g:boombox_sign_column)
+    call s:HL('SignifySignChange ', 'aqua', g:boombox_sign_column)
+    call s:HL('SignifySignDelete', 'red', g:boombox_sign_column)
 else
-    call s:HL('SignifySignAdd', 'green', g:gruvbox_sign_column, 'inverse')
-    call s:HL('SignifySignChange ', 'aqua', g:gruvbox_sign_column, 'inverse')
-    call s:HL('SignifySignDelete', 'red', g:gruvbox_sign_column, 'inverse')
+    call s:HL('SignifySignAdd', 'green', g:boombox_sign_column, 'inverse')
+    call s:HL('SignifySignChange ', 'aqua', g:boombox_sign_column, 'inverse')
+    call s:HL('SignifySignDelete', 'red', g:boombox_sign_column, 'inverse')
 endif
 
 " }}}
@@ -676,23 +676,23 @@ endif
 call s:HL('SyntasticError', 'none', 'none', 'undercurl', 'red')
 call s:HL('SyntasticWarning', 'none', 'none', 'undercurl', 'yellow')
 
-if g:gruvbox_invert_signs == 0
-    call s:HL('SyntasticErrorSign', 'red', g:gruvbox_sign_column)
-    call s:HL('SyntasticWarningSign', 'yellow', g:gruvbox_sign_column)
+if g:boombox_invert_signs == 0
+    call s:HL('SyntasticErrorSign', 'red', g:boombox_sign_column)
+    call s:HL('SyntasticWarningSign', 'yellow', g:boombox_sign_column)
 else
-    call s:HL('SyntasticErrorSign', 'red', g:gruvbox_sign_column, 'inverse')
-    call s:HL('SyntasticWarningSign', 'yellow', g:gruvbox_sign_column, 'inverse')
+    call s:HL('SyntasticErrorSign', 'red', g:boombox_sign_column, 'inverse')
+    call s:HL('SyntasticWarningSign', 'yellow', g:boombox_sign_column, 'inverse')
 endif
 
 " }}}
 " Signature: {{{
 
-if g:gruvbox_invert_signs == 0
-    call s:HL('SignatureMarkerText', 'purple', g:gruvbox_sign_column)
-    call s:HL('SignatureMarkText', 'blue', g:gruvbox_sign_column)
+if g:boombox_invert_signs == 0
+    call s:HL('SignatureMarkerText', 'purple', g:boombox_sign_column)
+    call s:HL('SignatureMarkText', 'blue', g:boombox_sign_column)
 else
-    call s:HL('SignatureMarkerText', 'purple', g:gruvbox_sign_column, 'inverse')
-    call s:HL('SignatureMarkText', 'blue', g:gruvbox_sign_column, 'inverse')
+    call s:HL('SignatureMarkerText', 'purple', g:boombox_sign_column, 'inverse')
+    call s:HL('SignatureMarkText', 'blue', g:boombox_sign_column, 'inverse')
 endif
 
 let g:SignatureMarkerTextHL='"SignatureMarkerText"'
@@ -701,16 +701,16 @@ let g:SignatureMarkTextHL='"SignatureMarkText"'
 " }}}
 " ShowMarks: {{{
 
-if g:gruvbox_invert_signs == 0
-    call s:HL('ShowMarksHLl', 'blue', g:gruvbox_sign_column)
-    call s:HL('ShowMarksHLu', 'blue', g:gruvbox_sign_column)
-    call s:HL('ShowMarksHLo', 'blue', g:gruvbox_sign_column)
-    call s:HL('ShowMarksHLm', 'blue', g:gruvbox_sign_column)
+if g:boombox_invert_signs == 0
+    call s:HL('ShowMarksHLl', 'blue', g:boombox_sign_column)
+    call s:HL('ShowMarksHLu', 'blue', g:boombox_sign_column)
+    call s:HL('ShowMarksHLo', 'blue', g:boombox_sign_column)
+    call s:HL('ShowMarksHLm', 'blue', g:boombox_sign_column)
 else
-    call s:HL('ShowMarksHLl', 'blue', g:gruvbox_sign_column, 'inverse')
-    call s:HL('ShowMarksHLu', 'blue', g:gruvbox_sign_column, 'inverse')
-    call s:HL('ShowMarksHLo', 'blue', g:gruvbox_sign_column, 'inverse')
-    call s:HL('ShowMarksHLm', 'blue', g:gruvbox_sign_column, 'inverse')
+    call s:HL('ShowMarksHLl', 'blue', g:boombox_sign_column, 'inverse')
+    call s:HL('ShowMarksHLu', 'blue', g:boombox_sign_column, 'inverse')
+    call s:HL('ShowMarksHLo', 'blue', g:boombox_sign_column, 'inverse')
+    call s:HL('ShowMarksHLm', 'blue', g:boombox_sign_column, 'inverse')
 endif
 
 " }}}
@@ -814,7 +814,7 @@ call s:HL('xmlEntityPunct', 'orange')
 " }}}
 " Vim: {{{
 
-if g:gruvbox_italicize_comments == 0
+if g:boombox_italicize_comments == 0
     call s:HL('vimCommentTitle', 'light4_256', 'none', 'bold')
 else
     call s:HL('vimCommentTitle', 'light4_256', 'none', 'bold,italic')
@@ -1054,14 +1054,14 @@ call s:HL('markdownIdDeclaration', 'medium', 'none', 'underline')
 " Functions -------------------------------------------------------------------
 " Search Highlighting Cursor {{{
 
-function! GruvboxHlsShowCursor()
-    call s:HL('Cursor', 'dark0', g:gruvbox_hls_cursor)
-    call s:HL('vCursor', 'dark0', g:gruvbox_hls_cursor)
-    call s:HL('iCursor', 'dark0', g:gruvbox_hls_cursor)
-    call s:HL('lCursor', 'dark0', g:gruvbox_hls_cursor)
+function! BoomboxHlsShowCursor()
+    call s:HL('Cursor', 'dark0', g:boombox_hls_cursor)
+    call s:HL('vCursor', 'dark0', g:boombox_hls_cursor)
+    call s:HL('iCursor', 'dark0', g:boombox_hls_cursor)
+    call s:HL('lCursor', 'dark0', g:boombox_hls_cursor)
 endfunction
 
-function! GruvboxHlsHideCursor()
+function! BoomboxHlsHideCursor()
     call s:HL('Cursor', 'none', 'none', 'inverse')
     call s:HL('vCursor', 'none', 'none', 'inverse')
     call s:HL('iCursor', 'none', 'none', 'inverse')
