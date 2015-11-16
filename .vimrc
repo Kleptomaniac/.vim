@@ -11,16 +11,15 @@
 " -- General Vim Settings --
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Establish how many lines of history Vim should store
+set history=700
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
 
 " Automatically read changes made oustide editor
 set autoread
-
-" Leader key to be used in custom
-" Boombox commands - '.' key
-let mapleader = "."
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Vim Backup Settings --
@@ -44,26 +43,58 @@ set number
 " Ensure current position always shown
 set ruler
 
-" Enable wildmenu (tab auto-completion)
-set wildmenu
-
 " Ensure status line always visible
 set laststatus=2
 
-" Format the status line
-set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ %l,\ %c
+" Format the status line 
+" (filename, working dir, line, col)
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %{getcwd()}\ \ \ %l,\ %c
+
+" Enable wildmenu (tab auto-completion)
+set wildmenu
+
+" Ignore certain files in autocompletion
+" (encoded files, compilation files)
+set wildignore=.git,*.o,*~,*.swp,*.jpg,*.png,*.gif,*.pdf,*.pyc
+" Ensure binary files (no suffix) are less preferable
+set suffixes+=,
+
+" Buffer becomes hidden when abandoned
+set hidden
+
+" Disable warning bells on error
+set noerrorbells
+set novisualbell
+set t_vb=
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" -- Vim Themes and Colours --
+" -- Vim Themes, Colours, Fonts --
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable syntax highlighting
 syntax enable
 
 " Forces Vim to display with 256 bit 
-" colour pallette
+" colour pallette in Unix
 if has('unix')
     set t_Co=256
+endif
+
+" Set GUI-friendly properties for GVim
+if has('gui_running')
+    set t_Co=256
+    " Ensure tab line correctly displayed
+    set guioptions+=e
+    " Disable toolbar display
+    set guioptions-=T
+    
+    set guitablabel=%M\ %t
+
+    " Set font for GVim
+    " Windows specific currently
+    if has('gui_win32')
+        set guifont=Consolas:h10:cANSI
+    endif
 endif
 
 " Set colour theme to Boombox (colors 
@@ -71,8 +102,31 @@ endif
 colorscheme boombox
 set background=dark
 
+" Ensure UTF8 is standard character encoding 
+" and en_US is standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-" -- Indent Settings --
+" -- Motion Settings --
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Minimum number of lines visible above and
+" below cursor when scrolling
+set scrolloff=8
+
+" Ensure backspace works correctly over certain
+" indents and linebreaks
+set backspace=eol,start,indent
+
+" Ensure cursor moves to next line when
+" end reached with arrow keys
+set whichwrap+=<,>,[,]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Indent/Text-Wrap Settings --
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Tabs are comprised of spaces
@@ -84,11 +138,52 @@ set smarttab
 " Tabs should be 4 spaces long by default
 set shiftwidth=4
 set tabstop=4
-set softtabstop=4  
+set softtabstop=4
+
+" Automatically/intelligently indent lines
+set autoindent
+set cindent
+
+" Wrap text at the ends of full words after
+" 200 characters
+set wrap
+set linebreak
+set textwidth=300
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Search/Macro Settings --
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Ignore case when searching
+set ignorecase
+
+" Override ignorecase if search string contains
+" uppercase (other smarter search strategies) 
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Jump to results as search string is formed
+set incsearch
+
+" Disable redraw while executing macros
+set lazyredraw
+
+" Enable magic regular expressions
+set magic
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Key Remapping --
 """""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Time in ms to wait for keycodes/commands
+" to be input
+set timeoutlen=500
+
+" Leader key to be used in custom
+" Boombox commands - '.' key
+let mapleader = "."
 
 "map <leader>tn
 
@@ -100,7 +195,7 @@ set softtabstop=4
 " ensure tabline is permanently shown 
 try
     set switchbuf=useopen,usetab,newtab
-    set stal=2
+    set showtabline=2
 catch
 endtry
 
