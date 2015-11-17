@@ -5,6 +5,12 @@
 " Version: 1.0
 " Last Revision: 17/11/15
 "
+" Heavily modified from the .vimrc file provided by 
+" Amir Salihefendic at https://amix.dk/vim/vimrc.html
+"
+" Other snippets of code found from external
+" sources are referenced individually
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,20 +180,6 @@ set lazyredraw
 set magic
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-" -- Key Remapping --
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Time in ms to wait for keycodes/commands
-" to be input
-set timeoutlen=500
-
-" Leader key to be used in custom
-" Boombox commands - '.' key
-let mapleader = "."
-
-"map <leader>tn
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Tab and Window Settings --
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -205,10 +197,39 @@ endtry
 " http://stackoverflow.com/a/4348480
 function! ReadBufferCursorPos()
     if !(bufname("%") =~ '\(COMMIT_EDITMSG\)') && line("'\"") > 1 && line("'\"") <= line("$")
-        exe "normal! g`\""
+        execute "normal! g`\""
     endif
 endfunction
 autocmd BufReadPost * call ReadBufferCursorPos()
 
 " Remember info about open buffers on close
 set viminfo^=%
+
+" Open multiple tabs in a single invocation
+" (supports wildcard)
+" Sourced from Carpetsmoker at
+" http://vi.stackexchange.com/a/2110
+function! MultiTabedit(pattern_list)
+    for p in a:pattern_list
+        for c in glob(l:p, 0, 1)
+            execute 'tabedit ' . l:c
+        endfor
+    endfor
+endfunction
+command! -bar -bang -nargs=+ -complete=file Te call MultiTabedit([<f-args>])
+
+" Remap the tab movement keys
+map ] gt
+map [ gT
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- Key Remapping --
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Time in ms to wait for keycodes/commands
+" to be input
+set timeoutlen=500
+
+" Leader key to be used in custom
+" Boombox commands - '.' key
+let mapleader = "."
