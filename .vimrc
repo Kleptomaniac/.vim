@@ -27,6 +27,10 @@ filetype indent on
 " Automatically read changes made oustide editor
 set autoread
 
+" Leader key to be used in custom
+" Boombox commands - '.' key
+let mapleader = "."
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Vim Backup Settings --
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -116,7 +120,7 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-" -- Motion Settings --
+" -- Editor Behaviour --
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Minimum number of lines visible above and
@@ -130,6 +134,15 @@ set backspace=eol,start,indent
 " Ensure cursor moves to next line when
 " end reached with arrow keys
 set whichwrap+=<,>,[,]
+
+" Delete text without yanking
+nnoremap <leader>d "_d
+vnoremap d "_d
+
+" Replace currently selected text without
+" yanking it
+nnoremap p "_dP
+vnoremap p "_dP
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Indent/Text-Wrap Settings --
@@ -229,7 +242,3 @@ map [ gT
 " Time in ms to wait for keycodes/commands
 " to be input
 set timeoutlen=500
-
-" Leader key to be used in custom
-" Boombox commands - '.' key
-let mapleader = "."
