@@ -208,7 +208,7 @@ function! ReadBufferCursorPos()
         exe "normal! g`\""
     endif
 endfunction
-au BufReadPost * call ReadBufferCursorPos()
+autocmd BufReadPost * call ReadBufferCursorPos()
 
 " Remember info about open buffers on close
 set viminfo^=%
