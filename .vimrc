@@ -17,19 +17,34 @@
 " -- General Vim Settings --
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Remove backwards compatibility with Vi
+set nocompatible
+
+" Change terminal title to reflect open file
+set title
+
 " Establish how many lines of history Vim should store
-set history=700
+set history=1000
+" Establish how many levels of undo should be stored
+set undolevels=1000
 
 " Enable filetype plugins
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " Automatically read changes made oustide editor
 set autoread
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -- General Key Remapping --
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Leader key to be used in custom
-" Boombox commands - '.' key
-let mapleader = "."
+" Boombox commands - ',' key
+let mapleader = ","
+
+" Time in ms to wait for keycodes/commands
+" to be input
+set timeoutlen=500
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Vim Backup Settings --
@@ -136,13 +151,16 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,[,]
 
 " Delete text without yanking
-nnoremap <leader>d "_d
-vnoremap d "_d
+"nnoremap <leader>d "_d
+"vnoremap <leader>d "_d
 
 " Replace currently selected text without
 " yanking it
-nnoremap p "_dP
-vnoremap p "_dP
+"nnoremap p "_dP
+"vnoremap p "_dP
+
+" Map Paste Mode toggle to single key
+set pastetoggle=<F5>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Indent/Text-Wrap Settings --
@@ -159,15 +177,16 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+" Ensure shiftwidth respected when indenting
+" with '<' and '>'
+set shiftround
+
 " Automatically/intelligently indent lines
 set autoindent
 set cindent
 
-" Wrap text at the ends of full words after
-" 200 characters
-set wrap
-set linebreak
-set textwidth=300
+" Disable text wrapping
+set nowrap
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " -- Search/Macro Settings --
@@ -236,9 +255,11 @@ map ] gt
 map [ gT
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-" -- Key Remapping --
+" -- Debugging --
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Time in ms to wait for keycodes/commands
-" to be input
-set timeoutlen=500
+" Edit and reload current .vimrc file
+" Sourced from Vincent Driessen at
+" http://nvie.com/posts/how-i-boosted-my-vim
+nmap <silent> <leader>ev :e $MYVIMRC<cr>
+nmap <silent> <leader>rv :so $MYVIMRC<cr>
