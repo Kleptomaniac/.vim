@@ -6,7 +6,7 @@ To install Boombox on Linux and Mac, you need only run these two commands:
 
 ```
 git clone https://github.com/Kleptomaniac/boombox.git ~/boombox
-~/boombox/setup
+~/boombox/install
 ```
 
 ## Windows Installation Guide
