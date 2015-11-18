@@ -1,7 +1,7 @@
 # boombox.vim - Makes Vim look purty!
 Adds frequently updated vim colour, theme and configuration settings to your vim install!
 
-## Unix Installation Guide
+## Linux and Mac Installation Guide
 To install Boombox on Linux and Mac, you need only run these two commands:
 
 ```
