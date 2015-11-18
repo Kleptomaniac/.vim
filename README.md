@@ -10,7 +10,7 @@ git clone https://github.com/Kleptomaniac/boombox.git ~/boombox
 ```
 
 ## Windows Installation Guide
-Windows isn't as easy unfortunately. To install Boombox, run the following commands:
+Windows isn't as easy unfortunately. To install Boombox, run the following commands (ensure you Run as Administrator):
 
 ```
 cd <$VIM-path> (e.g C:\Program Files\Vim)
