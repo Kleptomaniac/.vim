@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Shell script to add .vimrc and vim themes
-# support, while preserving git repo support
+# Installs Boombox (themes, vimrc, etc)
+# for Vim on Linux (should run on Mac OSX
+# also? No testing done however)
 #
 # Ensure this file is run when git repo
 # is first added
@@ -12,10 +13,10 @@ while true; do
     case $check in
         [Yy]* )
             # Remove existing ~/.vim and ~/.vimrc instances
-            # Set up symbolic link to repo .vimrc file
+            # Set up symbolic link to repo vimrc file
             rm -r -f ~/.vim
             mv ~/.boombox ~/.vim
-            ln -f -s ~/.vim/.vimrc ~/.vimrc
+            ln -f -s ~/.vim/.vimrc ~/vimrc
             echo "Vim setup complete."
             break;;
         [Nn]* )

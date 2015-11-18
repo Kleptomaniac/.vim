@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" -- Boombox .vimrc --
+" -- Boombox vimrc file --
 "
 " Maintainer: Matthew McNally
 " Version: 1.0
