@@ -16,7 +16,7 @@ Windows isn't as easy unfortunately. To install Boombox, run the following comma
 cd <$VIM-path> (e.g C:\Program Files\Vim)
 rmdir vimfiles /s /q
 git clone https://github.com/Kleptomaniac/boombox.git vimfiles
-echo "so $VIM/vimfiles/vimrc" > _vimrc
+echo so $VIM/vimfiles/vimrc > _vimrc
 ```
 
 After that, you're done and vim looks a whole lot prettier!
