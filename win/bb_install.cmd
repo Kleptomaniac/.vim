@@ -5,8 +5,9 @@
 :: git repo is first added
 
 :: Turn off command printing
-@ECHO OFF
+@echo off
 
-rmdir ../../vimfiles /s /q
-rename ../../ vimfiles
-echo "source $VIM/vimfiles/vimrc" > ../../_vimrc
+cd ../../
+rmdir vimfiles /s /q
+rename boombox vimfiles
+echo "source $VIM/vimfiles/vimrc" > _vimrc
