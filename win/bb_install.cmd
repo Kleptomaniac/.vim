@@ -7,7 +7,8 @@
 :: Turn off command printing
 @echo off
 
-cd ../../
-rmdir vimfiles /s /q
-rename boombox vimfiles
-echo "source $VIM/vimfiles/vimrc" > _vimrc
+:: Change working directory to parent of
+:: repo, add link to internal vimrc
+pushd %dp0\..\..
+echo "so $VIM/vimfiles/vimrc" > _vimrc
+popd
