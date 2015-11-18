@@ -15,7 +15,7 @@ while true; do
             # Remove existing ~/.vim and ~/.vimrc instances
             # Set up symbolic link to repo vimrc file
             rm -r -f ~/.vim
-            mv ~/.boombox ~/.vim
+            mv ~/boombox ~/.vim
             ln -f -s ~/.vim/.vimrc ~/vimrc
             echo "Vim setup complete."
             break;;
