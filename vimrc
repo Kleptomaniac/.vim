@@ -115,10 +115,13 @@ if has('gui_running')
     
     set guitablabel=%M\ %t
 
-    " Set font for GVim
-    " Windows specific currently
+    " Windows specific GVim properties currently
     if has('gui_win32')
+        " Set font to use on Windows GVim
         set guifont=Consolas:h10:cANSI
+
+        " Attempt to maximise the GVim window
+        autocmd GUIEnter * simalt ~x
     endif
 endif
 
