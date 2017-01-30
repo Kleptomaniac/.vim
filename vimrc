@@ -88,8 +88,8 @@ set suffixes+=,
 set hidden
 
 " Disable warning bells on error
-set noerrorbells
-set novisualbell
+set errorbells
+set visualbell
 set t_vb=
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
